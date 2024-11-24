@@ -1,0 +1,247 @@
+.main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    &-bg {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+
+        &_image {
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            object-fit: cover;
+            @media screen and (max-width: 768px){
+            height: 100%;
+        }
+        }
+        
+
+    }
+
+    &-content {
+        @include flex(center, space-between);
+        width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #fff;
+        padding-top: 24px;
+    }
+
+    &-nav{
+        @include flex(center, space-between);
+        width: 100%
+    }
+
+    &-items {
+        @include flex(center, unset);
+        gap: 30px;
+    }
+
+    &-weather_items {
+        position: absolute;
+        bottom: 70px;
+        @include flex(center, unset);
+        gap: 40px;
+
+        @media screen and (max-width: 1100px){
+            gap: 20px;
+        }
+
+    }
+
+    &-icon{
+        @media screen and (max-width: 990px){
+            display: none;
+        }
+    }
+
+    &-degree {
+        font-family: $font-family;
+        font-weight: 400;
+        @include adaptive-value('font-size', 140, 35);
+        letter-spacing: -0.08em;
+        color: #fff;
+    }
+
+    &-country {
+        font-family: $font-family;
+        font-weight: 400;
+        @include adaptive-value('font-size', 60, 25);
+        color: #fff;
+    }
+
+    &-date {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 16px;
+        color: #fff;
+    }
+
+    &-card {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-left: 5px solid rgba(255, 255, 255, 0.14);
+        width: 480px;
+        height: 100vh;
+        backdrop-filter: blur(13px);
+        background: rgba(255, 255, 255, 0.04);
+        padding: 45px;
+        transition: all 0.2s ease-in-out;
+
+        &.show{
+            transform: translateX(0);
+        }
+        @media screen and (max-width: 870px){
+            width: 400px;
+        }
+
+        @media screen and (max-width: 768px){
+            width: 100%;
+            transform: translateX(100%);
+        }
+    }
+
+    &-nav_items{
+        @include flex(center, unset);
+        gap: 24px
+    }
+
+    &-info {
+        @include flex(center, center);
+        flex-direction: column;
+        gap: 14px;
+
+        &_box {
+            @include flex(center, space-between);
+            width: 100%;
+        }
+
+        &_number {
+            font-family: $font-family;
+            font-weight: 400;
+            font-size: 18px;
+            color: #fff;
+            @include flex(center, unset);
+            gap: 8px;
+        }
+    }
+
+    &-min-temp {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    &-btn {
+        border: none;
+    }
+
+    &-info_text {
+        font-family: $font-family;
+        font-weight: 500;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #fff;
+        margin: 70px 0 10px 0;
+    }
+
+    &-search_box{
+        max-width: 300px;
+    }
+
+    &-btn_mobile{
+        position: absolute;
+        top: 25px;
+    }
+
+    &-menu_btn{
+        border: none;
+        background-color: transparent;
+    }
+
+    &-search_input{
+        position: relative;
+        padding: 5px 0;
+        width: 100%;
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.7);
+        border: none;
+        border-bottom: 2px solid #ccc;
+        outline: none;
+        transition: border-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+        background-color: transparent;
+    }
+
+    &-card_btn{
+        display: none;
+        position: absolute;
+        right: 35px;
+        top: 35px;
+        border: none;
+        background-color: transparent;
+
+        &.show{
+            display: block;
+        }
+    }
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+
+    @media screen and (max-width: 768px){
+        display: none;
+    }
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+    background-color: transparent;
+}
+
+.search-input:focus {
+    border-bottom: 2px solid #1976d2;
+    padding-left: 15px;
+}
+
+.search-input::placeholder {
+    font-family: $font-family;
+    font-weight: 400;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 20px;
+    color: #ccc;
+    transition: color 0.3s ease-in-out;
+}
+
+.search-input:focus~.search-icon {
+    color: #1976d2;
+}
