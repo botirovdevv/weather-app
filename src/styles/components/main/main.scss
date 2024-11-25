@@ -26,7 +26,12 @@
         top: 0;
         right: 0;
         color: #fff;
-        padding-top: 24px;
+        padding: 15px 0;
+
+        @media screen and (max-width: 768px){
+            background-color: #00000057;
+            backdrop-filter: blur(8px);
+        }
     }
 
     &-nav{
@@ -48,6 +53,13 @@
         @media screen and (max-width: 1100px){
             gap: 20px;
         }
+
+
+        @media screen and (max-width: 768px){
+            justify-content: center;
+            width: 100%;
+        }
+
     }
 
     &-icon{
@@ -62,6 +74,7 @@
         @include adaptive-value('font-size', 140, 55);
         letter-spacing: -0.08em;
         color: #fff;
+        text-shadow: #000 1px 0 10px;
     }
 
     &-country {
@@ -69,11 +82,19 @@
         font-weight: 400;
         @include adaptive-value('font-size', 60, 30);
         color: #fff;
+        text-shadow: #000 1px 0 10px;
+
     }
 
     &-weather_item{
         @include flex(center, unset);
         gap: 10px;
+
+        @media screen and (max-width: 768px){
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+        }
     }
 
     &-date {
@@ -81,6 +102,8 @@
         font-weight: 400;
         font-size: 16px;
         color: #fff;
+        text-shadow: #000 1px 0 10px;
+
     }
 
     &-card {
@@ -105,6 +128,8 @@
         @media screen and (max-width: 768px){
             width: 100%;
             transform: translateX(100%);
+            position: fixed;
+
         }
     }
 
@@ -160,6 +185,7 @@
     &-btn_mobile{
         position: absolute;
         top: 25px;
+        border: none;
     }
 
     &-menu_btn{
@@ -193,6 +219,15 @@
         &.show{
             display: block;
         }
+    }
+
+    &-search_icon {
+        position: absolute;
+        right: 20px;
+        top: 5px;
+        font-size: 20px;
+        color: #ccc;
+        transition: color 0.3s ease-in-out;
     }
 }
 
